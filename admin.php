@@ -1,5 +1,7 @@
 <?php
+session_start();
 include_once 'bdd.php';
+include('header.php');
 
 if (!isset($_SESSION['login']) || $_SESSION['login'] !== 'admin') {
     header("Location: connexion.php");
@@ -18,6 +20,11 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- Bouton aller au profil -->
+<div class="admin-nav">
+    <button class="btn-profil" onclick="window.location.href='profil.php'">👤 Aller au profil</button>
+</div>
 
 <div class="container">
     <h2>Page d'administration</h2>

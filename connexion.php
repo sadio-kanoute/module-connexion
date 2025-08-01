@@ -1,5 +1,7 @@
 <?php
+session_start();
 include_once 'bdd.php';
+include('header.php');
 
 $erreur = '';
 
@@ -17,8 +19,13 @@ if (isset($_POST['submit'])) {
             $_SESSION['login'] = $user['login'];
             $_SESSION['prenom'] = $user['prenom'];
             $_SESSION['nom'] = $user['nom'];
+            $_SESSION['role'] = $user['role']; 
 
-            header("Location: profil.php");
+            if ($user['role'] === 'admin') {
+                header("Location: admin.php");
+            } else {
+                header("Location: profil.php");
+            }
             exit();
         } else {
             $erreur = "Login ou mot de passe incorrect.";
@@ -28,28 +35,3 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8" />
-    <title>Connexion</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<form method="POST" action="">
-    <h2>Connexion</h2>
-    <input type="text" name="login" placeholder="Login" required value="<?= isset($login) ? htmlspecialchars($login) : '' ?>">
-    <input type="password" name="password" placeholder="Mot de passe" required>
-    <input type="submit" name="submit" value="Se connecter">
-
-    <?php if ($erreur): ?>
-        <p class="error"><?= $erreur ?></p>
-    <?php endif; ?>
-
-    <a href="inscription.php">Pas encore inscrit ? Crée un compte</a>
-</form>
-
-</body>
-</html>

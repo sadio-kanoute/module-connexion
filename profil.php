@@ -1,5 +1,7 @@
 <?php
 include_once 'bdd.php';
+include('header.php'); 
+
 
 if (!isset($_SESSION['login'])) {
     header("Location: connexion.php");

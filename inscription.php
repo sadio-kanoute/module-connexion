@@ -1,5 +1,6 @@
 <?php
 include_once 'bdd.php';
+include('header.php');
 
 $erreur = '';
 
@@ -44,6 +45,7 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
 
 <form method="POST" action="">
     <h2>Inscription</h2>

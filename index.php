@@ -1,5 +1,6 @@
 <?php
 include_once 'bdd.php';
+include('header.php');
 ?>
 
 <!DOCTYPE html>
