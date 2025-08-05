@@ -60,7 +60,9 @@ if (isset($_POST['submit'])) {
             <input type="password" name="password" id="password" required><br>
 
             <input type="submit" name="submit" value="Se connecter">
+            <p>Pas encore inscrit ? <a href="inscription.php">Inscrivez-vous ici</a></p>
         </form>
+
     </main>
     <?php include('footer.php'); ?>
 
