@@ -4,6 +4,7 @@ include_once 'bdd.php';
 include('header.php');
 
 
+
 if (!isset($_SESSION['login']) || $_SESSION['login'] !== 'admin') {
     header("Location: connexion.php");
     exit();
@@ -22,11 +23,6 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-
-<div class="admin-nav">
-    <button class="btn-profil" onclick="window.location.href='profil.php'">👤 Aller au profil</button>
-</div>
 
 <div class="container">
     <h2>Page d'administration</h2>
@@ -56,5 +52,6 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <a class="logout" href="deconnexion.php">Se déconnecter</a>
 </div>
 
+<?php include('footer.php'); ?>
 </body>
 </html>

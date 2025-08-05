@@ -2,6 +2,7 @@
 include_once 'bdd.php';
 include('header.php');
 
+
 $erreur = '';
 
 if (isset($_POST['submit'])) {
@@ -62,6 +63,8 @@ if (isset($_POST['submit'])) {
 
     <a href="connexion.php">Déjà inscrit ? Connecte-toi</a>
 </form>
+
+<?php include('footer.php'); ?>
 
 </body>
 </html>

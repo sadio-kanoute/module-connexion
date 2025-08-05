@@ -2,12 +2,7 @@
 include_once 'bdd.php';
 ?>
 
-<header>
-  <div class="top-nav">
-    <button class="btn-retour-accueil" onclick="window.location.href='index.php'">🏠 Accueil</button>
-  </div>
-</header>
-
+<!-- Navigation principale -->
 <nav class="main-nav">
   <ul>
     <li><a href="index.php">Accueil</a></li>
@@ -23,3 +18,5 @@ include_once 'bdd.php';
     <?php endif; ?>
   </ul>
 </nav>
+
+

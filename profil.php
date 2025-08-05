@@ -3,6 +3,7 @@ include_once 'bdd.php';
 include('header.php'); 
 
 
+
 if (!isset($_SESSION['login'])) {
     header("Location: connexion.php");
     exit();
@@ -114,6 +115,8 @@ if (isset($_POST['submit'])) {
 
     <a class="logout" href="deconnexion.php">Se déconnecter</a>
 </div>
+
+<?php include('footer.php'); ?>
 
 </body>
 </html>

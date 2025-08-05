@@ -3,6 +3,7 @@ session_start();
 include_once 'bdd.php';
 include('header.php');
 
+
 $erreur = '';
 
 if (isset($_POST['submit'])) {
@@ -61,5 +62,7 @@ if (isset($_POST['submit'])) {
             <input type="submit" name="submit" value="Se connecter">
         </form>
     </main>
+    <?php include('footer.php'); ?>
+
 </body>
 </html>
