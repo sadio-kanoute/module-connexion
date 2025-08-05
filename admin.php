@@ -3,10 +3,12 @@ session_start();
 include_once 'bdd.php';
 include('header.php');
 
+
 if (!isset($_SESSION['login']) || $_SESSION['login'] !== 'admin') {
     header("Location: connexion.php");
     exit();
 }
+
 
 $stmt = $bdd->query("SELECT id, login, prenom, nom FROM utilisateurs ORDER BY id ASC");
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -21,14 +23,14 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
 
-<!-- Bouton aller au profil -->
+
 <div class="admin-nav">
     <button class="btn-profil" onclick="window.location.href='profil.php'">👤 Aller au profil</button>
 </div>
 
 <div class="container">
     <h2>Page d'administration</h2>
-    <p>Bienvenue, admin. Voici la liste des utilisateurs enregistrés :</p>
+    <p>Bienvenue, admin <strong><?= htmlspecialchars($_SESSION['login']) ?></strong>. Voici la liste des utilisateurs enregistrés :</p>
 
     <table>
         <thead>

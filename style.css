@@ -1,5 +1,4 @@
-/* style.css - Style global simple et moderne */
-
+/* 🎨 Base générale     */
 body {
     font-family: Arial, sans-serif;
     background: #f0f2f5;
@@ -7,20 +6,25 @@ body {
     padding: 0;
 }
 
+a {
+    color: #0077cc;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    margin-top: 15px;
+    transition: 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/*  Header & Navbar   */
 header {
     background: #0077cc;
     color: white;
     padding: 20px;
     text-align: center;
-}
-
-main, .container, form {
-    background: white;
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px #aaa;
 }
 
 nav {
@@ -30,13 +34,54 @@ nav {
 
 nav a {
     color: #0077cc;
-    text-decoration: none;
-    margin: 0 10px;
     font-weight: bold;
+    margin: 0 10px;
 }
 
 nav a:hover {
     text-decoration: underline;
+}
+
+/* Nav admin + top bar */
+.top-nav {
+    text-align: right;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.main-nav {
+    background-color: #343a40;
+    padding: 10px 20px;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav ul li a {
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.main-nav ul li a:hover {
+    color: #ffc107;
+}
+
+/*  Formulaires       */
+
+main, .container, form {
+    background: white;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #aaa;
 }
 
 form {
@@ -48,76 +93,42 @@ form h2 {
     margin-bottom: 20px;
 }
 
-input[type=text], input[type=password], input[type=submit], label {
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+input[type=text],
+input[type=password],
+input[type=submit] {
     display: block;
     width: 100%;
     box-sizing: border-box;
-}
-
-input[type=text], input[type=password] {
     padding: 10px;
     margin: 8px 0 15px 0;
-    border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+input[type=text],
+input[type=password] {
+    border: 1px solid #ccc;
 }
 
 input[type=submit] {
     background-color: #0077cc;
     color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
     font-weight: bold;
+    border: none;
+    cursor: pointer;
 }
 
 input[type=submit]:hover {
     background-color: #005fa3;
 }
 
-label {
-    font-weight: bold;
-    margin-top: 15px;
-}
 
-.error {
-    color: red;
-    text-align: center;
-    margin-top: 10px;
-}
-
-.success {
-    color: green;
-    text-align: center;
-    margin-top: 10px;
-}
-
-a {
-    color: #0077cc;
-    text-decoration: none;
-    text-align: center;
-    display: block;
-    margin-top: 15px;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-a.logout {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background: #e74c3c;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    text-align: center;
-}
-
-a.logout:hover {
-    background: #c0392b;
-}
+/*  Tables            */
 
 table {
     width: 100%;
@@ -140,71 +151,70 @@ tr:nth-child(even) {
     background: #f9f9f9;
 }
 
+/*  Messages système  */
 
-.admin-nav {
-  text-align: right;
-  margin: 15px 20px;
+.error {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
 }
 
+.success {
+    color: green;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+/*  Boutons spéciaux  */
+
+a.logout {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #e74c3c;
+    color: white;
+    border-radius: 5px;
+}
+
+a.logout:hover {
+    background: #c0392b;
+}
+
+.btn-retour,
+.btn-retour-accueil,
 .btn-profil {
-  background-color: #28a745;
-  color: white;
-  padding: 10px 18px;
-  font-size: 15px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s;
+    display: inline-block;
+    padding: 10px 18px;
+    font-size: 15px;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
 }
 
-.btn-profil:hover {
-  background-color: #218838;
+.btn-retour {
+    background-color: #007bff;
+    margin-top: 20px;
 }
 
-
-
-.top-nav {
-  text-align: right;
-  padding: 10px 20px;
-  background-color: #f8f9fa;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+.btn-retour:hover {
+    background-color: #0056b3;
 }
 
 .btn-retour-accueil {
-  background-color: #007bff;
-  color: white;
-  padding: 8px 16px;
-  font-size: 15px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s;
+    background-color: #007bff;
 }
 
 .btn-retour-accueil:hover {
-  background-color: #0056b3;
+    background-color: #0056b3;
 }
 
-.main-nav {
-  background-color: #343a40;
-  padding: 10px 20px;
+.btn-profil {
+    background-color: #28a745;
 }
 
-.main-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 15px;
-}
-
-.main-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.main-nav ul li a:hover {
-  color: #ffc107;
+.btn-profil:hover {
+    background-color: #218838;
 }
