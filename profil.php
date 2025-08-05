@@ -2,8 +2,6 @@
 include_once 'bdd.php';
 include('header.php'); 
 
-
-
 if (!isset($_SESSION['login'])) {
     header("Location: connexion.php");
     exit();
@@ -32,7 +30,6 @@ if (isset($_POST['submit'])) {
     $conf_password = $_POST['conf_password'];
 
     if (!empty($login) && !empty($prenom) && !empty($nom)) {
-
         if ($login !== $user['login']) {
             $checkLogin = $bdd->prepare("SELECT id FROM utilisateurs WHERE login = ? AND id != ?");
             $checkLogin->execute([$login, $userId]);
@@ -84,37 +81,39 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
 
-<div class="container">
-    <h2>Modifier mon profil</h2>
+<main>
+    <div class="container large">
+        <h2>Modifier mon profil</h2>
 
-    <form method="POST" action="">
-        <label for="login">Login</label>
-        <input type="text" id="login" name="login" required value="<?= htmlspecialchars($user['login']) ?>">
+        <form method="POST" action="">
+            <label for="login">Login</label>
+            <input type="text" id="login" name="login" required value="<?= htmlspecialchars($user['login']) ?>">
 
-        <label for="prenom">Prénom</label>
-        <input type="text" id="prenom" name="prenom" required value="<?= htmlspecialchars($user['prenom']) ?>">
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" name="prenom" required value="<?= htmlspecialchars($user['prenom']) ?>">
 
-        <label for="nom">Nom</label>
-        <input type="text" id="nom" name="nom" required value="<?= htmlspecialchars($user['nom']) ?>">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" required value="<?= htmlspecialchars($user['nom']) ?>">
 
-        <label for="password">Nouveau mot de passe (laisse vide pour garder l'actuel)</label>
-        <input type="password" id="password" name="password" placeholder="Nouveau mot de passe">
+            <label for="password">Nouveau mot de passe (laisse vide pour garder l'actuel)</label>
+            <input type="password" id="password" name="password" placeholder="Nouveau mot de passe">
 
-        <label for="conf_password">Confirmer nouveau mot de passe</label>
-        <input type="password" id="conf_password" name="conf_password" placeholder="Confirmer mot de passe">
+            <label for="conf_password">Confirmer nouveau mot de passe</label>
+            <input type="password" id="conf_password" name="conf_password" placeholder="Confirmer mot de passe">
 
-        <input type="submit" name="submit" value="Mettre à jour">
-    </form>
+            <input type="submit" name="submit" value="Mettre à jour">
+        </form>
 
-    <?php if ($erreur): ?>
-        <p class="error"><?= $erreur ?></p>
-    <?php endif; ?>
-    <?php if ($succes): ?>
-        <p class="success"><?= $succes ?></p>
-    <?php endif; ?>
+        <?php if ($erreur): ?>
+            <p class="error"><?= $erreur ?></p>
+        <?php endif; ?>
+        <?php if ($succes): ?>
+            <p class="success"><?= $succes ?></p>
+        <?php endif; ?>
 
-    <a class="logout" href="deconnexion.php">Se déconnecter</a>
-</div>
+        <a class="logout" href="deconnexion.php">Se déconnecter</a>
+    </div>
+</main>
 
 <?php include('footer.php'); ?>
 

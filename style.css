@@ -1,15 +1,20 @@
-/* ===== Base générale ===== */
-body, html {
+/* ===== Reset de base ===== */
+html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  background: #f0f2f5;
+}
+
+/* ===== Base générale ===== */
+body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: #f0f2f5;
 }
 
+/* ===== Liens ===== */
 a {
   color: #0077cc;
   text-decoration: none;
@@ -22,32 +27,6 @@ a:hover {
   color: #005fa3;
 }
 
-/* ===== Section Présentation Accueil ===== */
-.presentation {
-    background: #ffffff;
-    border-left: 5px solid #0077cc;
-    padding: 20px 25px;
-    margin: 30px auto;
-    max-width: 700px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.presentation h2 {
-    margin-top: 0;
-    color: #0077cc;
-}
-
-.presentation ul {
-    margin-top: 10px;
-    padding-left: 20px;
-}
-
-.presentation ul li {
-    margin-bottom: 8px;
-}
-
-
 /* ===== Header ===== */
 header {
   background: #0077cc;
@@ -56,7 +35,7 @@ header {
   text-align: center;
 }
 
-/* ===== Navigation principale ===== */
+/* ===== Nav principale (menu du haut) ===== */
 nav.main-nav {
   background-color: #343a40;
   padding: 10px 20px;
@@ -84,7 +63,7 @@ nav.main-nav {
   color: #343a40;
 }
 
-/* ===== Barre top admin ou autres ===== */
+/* ===== Barre top admin ===== */
 .top-nav {
   background-color: #f8f9fa;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
@@ -94,20 +73,60 @@ nav.main-nav {
   color: #333;
 }
 
-/* ===== Contenu principal ===== */
-main, .container, form {
-  background: #fff;
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 30px;
+/* ===== Section Présentation Accueil ===== */
+.presentation {
+  background: #ffffff;
+  border-left: 5px solid #0077cc;
+  padding: 20px 25px;
+  margin: 30px auto;
+  max-width: 700px;
   border-radius: 8px;
-  box-shadow: 0 0 15px rgba(170,170,170,0.4);
-  flex-grow: 1; 
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
+.presentation h2 {
+  margin-top: 0;
+  color: #0077cc;
+}
+
+.presentation ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.presentation ul li {
+  margin-bottom: 8px;
+}
+
+/* ===== Contenu principal ===== */
+main {
+  flex-grow: 1;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===== Formulaires & Container ===== */
+.container, form {
+  background: #fff;
+  width: 100%;
+  max-width: 600px;
+  padding: 30px;
+  margin: 40px 0;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(170,170,170,0.4);
+}
+/* Conteneur large pour les pages avec tableau */
+.container.large {
+  max-width: 900px;
+}
+
+
 form {
-  max-width: 320px;
+  max-width: 400px;
   margin: 0 auto;
+  overflow-y: auto;
 }
 
 form h2 {
@@ -182,64 +201,59 @@ tr:nth-child(even) {
   margin-top: 10px;
 }
 
-/* ===== Boutons Accueil ===== */
+/* ===== Boutons Accueil (Index) ===== */
 .btn-accueil {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 30px 0;
 }
 
 .btn-accueil a {
-    padding: 12px 25px;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Bouton inscription */
 .btn-inscription {
-    background-color: #28a745;
-    color: white;
+  background-color: #28a745;
+  color: white;
 }
 
 .btn-inscription:hover {
-    background-color: #218838;
+  background-color: #218838;
 }
 
-/* Bouton connexion */
 .btn-connexion {
-    background-color: #007bff;
-    color: white;
+  background-color: #007bff;
+  color: white;
 }
 
 .btn-connexion:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
-/* Bouton admin (si connecté) */
 .btn-admin {
-    background-color: #6f42c1;
-    color: white;
+  background-color: #6f42c1;
+  color: white;
 }
 
 .btn-admin:hover {
-    background-color: #5936a0;
+  background-color: #5936a0;
 }
 
-/* Bouton profil */
 .btn-profil {
-    background-color: #17a2b8;
-    color: white;
+  background-color: #17a2b8;
+  color: white;
 }
 
 .btn-profil:hover {
-    background-color: #138496;
+  background-color: #138496;
 }
-
 
 /* ===== Boutons spéciaux ===== */
 a.logout {
@@ -298,7 +312,7 @@ footer {
   padding: 15px 20px;
   font-size: 14px;
   border-top: 1px solid #005fa3;
-  margin-top: auto; /* pousse le footer en bas */
+  margin-top: auto;
 }
 
 footer a {
