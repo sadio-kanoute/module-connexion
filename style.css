@@ -458,4 +458,39 @@ h2 {
     text-align: center;
   }
 }
-@media (max-width: 480
+@media (max-width: 480px) {
+  nav.main-nav ul {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  form {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .btn-accueil {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-accueil a {
+    width: 90%;
+    text-align: center;
+  }
+
+  .form-inscription,
+  .form-profil {
+    padding: 1.5rem;
+  }
+
+  .presentation {
+    padding: 1.5rem;
+  }
+
+  main {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+  }
+}
