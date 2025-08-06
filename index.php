@@ -7,9 +7,12 @@ include('header.php');
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Accueil - Module Connexion</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
 
@@ -32,19 +35,17 @@ include('header.php');
     </section>
 
     <nav class="btn-accueil">
-    <?php if (!isset($_SESSION['login'])): ?>
-        <a href="inscription.php" class="btn-inscription">Inscription</a>
-        <a href="connexion.php" class="btn-connexion">Connexion</a>
-    <?php else: ?>
-        <a href="profil.php" class="btn-profil">Mon Profil (<?= htmlspecialchars($_SESSION['prenom']) ?>)</a>
-        <?php if ($_SESSION['login'] === 'admin'): ?>
-            <a href="admin.php" class="btn-admin">Espace Admin</a>
+        <?php if (!isset($_SESSION['login'])): ?>
+            <a href="inscription.php" class="btn-inscription">Inscription</a>
+            <a href="connexion.php" class="btn-connexion">Connexion</a>
+        <?php else: ?>
+            <a href="profil.php" class="btn-profil">Mon Profil (<?= htmlspecialchars($_SESSION['prenom']) ?>)</a>
+            <?php if ($_SESSION['login'] === 'admin'): ?>
+                <a href="admin.php" class="btn-admin">Espace Admin</a>
+            <?php endif; ?>
+            <a href="deconnexion.php" class="logout">Déconnexion</a>
         <?php endif; ?>
-        <a href="deconnexion.php" class="logout">Déconnexion</a>
-    <?php endif; ?>
-</nav>
-
-
+    </nav>
 </main>
 
 <?php include('footer.php'); ?>

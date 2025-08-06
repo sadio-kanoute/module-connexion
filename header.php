@@ -1,8 +1,10 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 include_once 'bdd.php';
 ?>
 
-<!-- Navigation principale -->
 <nav class="main-nav">
   <ul>
     <li><a href="index.php">Accueil</a></li>
@@ -14,9 +16,7 @@ include_once 'bdd.php';
       <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
         <li><a href="admin.php">Admin</a></li>
       <?php endif; ?>
-      <li><a href="deconnexion.php">Déconnexion</a></li>
+      <li><a href="deconnexion.php" class="logout-link">Déconnexion</a></li>
     <?php endif; ?>
   </ul>
 </nav>
-
-

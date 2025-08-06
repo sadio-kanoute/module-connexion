@@ -6,10 +6,13 @@
 }
 html, body {
   height: 100%;
-  font-family: 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: #f9fafb;
-  color: #333;
+  color: #2c3e50;
   line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* ========== Layout ========== */
@@ -20,137 +23,439 @@ body {
 }
 main {
   flex: 1;
-  padding: 2rem;
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2rem 1rem;
 }
 
 /* ========== Header ========== */
 header {
-  background: linear-gradient(90deg, #0077cc, #005fa3);
+  background: linear-gradient(90deg, #007bff, #0056b3);
   color: #fff;
   padding: 2rem 1rem;
   text-align: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 0 0 12px 12px;
+}
+header h1 {
+  font-weight: 700;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
 }
 
 /* ========== Navigation ========== */
 nav.main-nav {
-  background-color: #1e293b;
+  background-color: #007bff;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  font-family: 'Poppins', sans-serif;
 }
 nav.main-nav ul {
+  list-style: none;
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  list-style: none;
-  padding: 1rem;
+  gap: 2rem;
+  padding: 0.8rem 1rem;
+  margin: 0;
 }
 nav.main-nav ul li a {
-  color: #f1f5f9;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 25px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+nav.main-nav ul li a:hover,
+nav.main-nav ul li a:focus {
+  background-color: #0056b3;
+  color: #ffd700;
+}
+/* Bouton déconnexion */
+.logout-link {
+  background-color: #dc3545;
+}
+.logout-link:hover {
+  background-color: #a71d2a;
+  color: #fff;
+}
+
+/* ========== Buttons (Accueil, Profil...) ========== */
+.btn-accueil {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.3rem;
+}
+.btn-accueil a {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  border-radius: 30px;
   font-weight: 600;
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  color: white;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+  user-select: none;
+  font-size: 1rem;
 }
-nav.main-nav ul li a:hover {
-  background-color: #334155;
+.btn-inscription {
+  background-color: #007bff;
+}
+.btn-inscription:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+.btn-connexion {
+  background-color: #6c757d;
+}
+.btn-connexion:hover {
+  background-color: #565e64;
+  transform: scale(1.05);
+}
+.btn-profil {
+  background-color: #28a745;
+}
+.btn-profil:hover {
+  background-color: #1e7e34;
+  transform: scale(1.05);
+}
+.btn-admin {
+  background-color: #343a40;
+}
+.btn-admin:hover {
+  background-color: #23272b;
+  transform: scale(1.05);
+}
+.logout {
+  background-color: #dc3545;
+}
+.logout:hover {
+  background-color: #a71d2a;
+  transform: scale(1.05);
 }
 
 /* ========== Footer ========== */
 footer {
-  background-color: #1e293b;
-  color: #cbd5e1;
+  background-color: #343a40;
+  color: #f1f1f1;
   text-align: center;
-  padding: 1rem;
+  padding: 1.5rem 1rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  margin-top: 4rem;
+  user-select: none;
+}
+footer p {
+  margin: 0.3rem 0;
+}
+footer a {
+  color: #00aaff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+footer a:hover,
+footer a:focus {
+  color: #ffd700;
+  text-decoration: underline;
 }
 
 /* ========== Forms ========== */
-form {
-  max-width: 500px;
-  margin: 2rem auto;
-  background-color: #ffffff;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+.form-container {
+  max-width: 480px;
+  margin: 3rem auto 5rem;
+  padding: 0 1rem;
+  font-family: 'Poppins', sans-serif;
 }
-form label {
+
+.form-inscription,
+.form-profil {
+  background: #fff;
+  padding: 2.5rem 3rem;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.form-profil {
+  gap: 1.5rem;
+}
+.form-inscription h2,
+.form-profil h2 {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  font-size: 2rem;
+}
+.form-profil h2 {
+  margin-bottom: 1rem;
+}
+
+/* Labels */
+form label,
+.form-profil label {
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
   font-weight: 600;
+  color: #444;
 }
+
+/* Inputs */
 form input[type="text"],
 form input[type="password"],
-form input[type="email"] {
+form input[type="email"],
+.form-inscription input[type="text"],
+.form-inscription input[type="password"],
+.form-profil input[type="text"],
+.form-profil input[type="password"] {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.8rem 1rem;
   margin-bottom: 1rem;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
-  transition: border-color 0.3s;
-}
-form input:focus {
-  border-color: #0077cc;
+  font-size: 1rem;
+  border: 1.5px solid #ced4da;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
   outline: none;
 }
+form input:focus,
+.form-inscription input[type="text"]:focus,
+.form-inscription input[type="password"]:focus,
+.form-profil input[type="text"]:focus,
+.form-profil input[type="password"]:focus {
+  border-color: #007bff;
+}
+
+/* Submit buttons */
 form input[type="submit"],
-form button {
-  background-color: #0077cc;
+form button,
+.btn-submit,
+.btn.primary {
+  background-color: #007bff;
   color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
+  padding: 0.9rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1.1rem;
   cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
 }
 form input[type="submit"]:hover,
-form button:hover {
-  background-color: #005fa3;
+form button:hover,
+.btn-submit:hover,
+.btn.primary:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
 
-/* ========== Tables (Admin) ========== */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 2rem;
-}
-th, td {
-  border: 1px solid #e2e8f0;
-  padding: 1rem;
-  text-align: left;
-}
-th {
-  background-color: #f1f5f9;
-}
-tr:nth-child(even) {
-  background-color: #f9fafb;
-}
-
-/* ========== Messages (erreurs / succès) ========== */
-.message {
+/* Messages (erreurs / succès) */
+.message,
+.error,
+.success {
   text-align: center;
   padding: 1rem;
   border-radius: 6px;
   margin: 1rem auto;
   max-width: 600px;
+  font-weight: 600;
 }
-.message.error {
+.message.error,
+.error {
   background-color: #fee2e2;
   color: #991b1b;
 }
-.message.success {
+.message.success,
+.success {
   background-color: #dcfce7;
   color: #166534;
+}
+
+/* Lien retour */
+.btn-retour-accueil {
+  display: block;
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #007bff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.btn-retour-accueil:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* ========== Tables (Admin) ========== */
+.user-table,
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.user-table thead,
+th {
+  background-color: #007bff;
+  color: white;
+}
+.user-table th,
+.user-table td,
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  border: 1px solid #e2e8f0;
+}
+.user-table tbody tr:hover,
+tr:nth-child(even) {
+  background-color: #e9f0ff;
+}
+tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+/* Buttons danger / logout */
+.btn.danger {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 0.9rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+.btn.danger:hover,
+.logout:hover {
+  background-color: #b02a37;
+}
+
+/* Logout button style */
+.logout,
+.btn-logout {
+  display: inline-block;
+  padding: 0.6rem 1.6rem;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  background-color: #dc3545;
+  color: white;
+  margin-top: 1rem;
+  user-select: none;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+.logout:hover,
+.btn-logout:hover {
+  background-color: #a71d2a;
+}
+
+/* Containers */
+.container.small {
+  max-width: 400px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  font-family: 'Poppins', sans-serif;
+}
+.container.large {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Text styles */
+h2 {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+
+/* Small text links */
+.small-text {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+.small-text a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+}
+.small-text a:hover,
+.small-text a:focus {
+  text-decoration: underline;
+}
+
+/* Presentation box */
+.presentation {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  margin-bottom: 3rem;
+  color: #34495e;
+}
+.presentation h2 {
+  color: #007bff;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+.presentation p {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+.presentation ul {
+  list-style: inside disc;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+.presentation ul li {
+  margin-bottom: 0.6rem;
 }
 
 /* ========== Responsive ========== */
 @media (max-width: 768px) {
   nav.main-nav ul {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
+    align-items: center;
   }
 
   form {
     margin: 1rem;
     padding: 1.5rem;
   }
+
+  .btn-accueil {
+    flex-direction: column;
+    align-items: center;
+  }
+  .btn-accueil a {
+    width: 80%;
+    text-align: center;
+  }
 }
+@media (max-width: 480

@@ -1,6 +1,6 @@
 <?php
 include_once 'bdd.php';
-include('header.php'); 
+include('header.php');
 
 if (!isset($_SESSION['login'])) {
     header("Location: connexion.php");
@@ -76,13 +76,15 @@ if (isset($_POST['submit'])) {
 <html lang="fr">
 <head>
     <meta charset="UTF-8" />
-    <title>Profil</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Profil - Module Connexion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<main>
-    <div class="container large">
+<main class="form-container">
+    <div class="form-profil">
         <h2>Modifier mon profil</h2>
 
         <form method="POST" action="">
@@ -101,17 +103,18 @@ if (isset($_POST['submit'])) {
             <label for="conf_password">Confirmer nouveau mot de passe</label>
             <input type="password" id="conf_password" name="conf_password" placeholder="Confirmer mot de passe">
 
-            <input type="submit" name="submit" value="Mettre à jour">
+            <input type="submit" name="submit" value="Mettre à jour" class="btn-submit" />
         </form>
 
         <?php if ($erreur): ?>
             <p class="error"><?= $erreur ?></p>
         <?php endif; ?>
+
         <?php if ($succes): ?>
             <p class="success"><?= $succes ?></p>
         <?php endif; ?>
 
-        <a class="logout" href="deconnexion.php">Se déconnecter</a>
+        <a class="btn-logout" href="deconnexion.php">Se déconnecter</a>
     </div>
 </main>
 

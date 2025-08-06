@@ -41,21 +41,24 @@ if (isset($_POST['submit'])) {
 <html lang="fr">
 <head>
     <meta charset="UTF-8" />
-    <title>Inscription</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inscription - Module Connexion</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-<main>
-    <form method="POST" action="">
+<main class="form-container">
+    <form method="POST" action="" class="form-inscription">
         <h2>Inscription</h2>
 
-        <input type="text" name="login" placeholder="Login" required value="<?= isset($login) ? htmlspecialchars($login) : '' ?>">
-        <input type="text" name="prenom" placeholder="Prénom" required value="<?= isset($prenom) ? htmlspecialchars($prenom) : '' ?>">
-        <input type="text" name="nom" placeholder="Nom" required value="<?= isset($nom) ? htmlspecialchars($nom) : '' ?>">
-        <input type="password" name="password" placeholder="Mot de passe" required>
-        <input type="password" name="conf_password" placeholder="Confirmer mot de passe" required>
-        <input type="submit" name="submit" value="S'inscrire">
+        <input type="text" name="login" placeholder="Login" required value="<?= isset($login) ? htmlspecialchars($login) : '' ?>" />
+        <input type="text" name="prenom" placeholder="Prénom" required value="<?= isset($prenom) ? htmlspecialchars($prenom) : '' ?>" />
+        <input type="text" name="nom" placeholder="Nom" required value="<?= isset($nom) ? htmlspecialchars($nom) : '' ?>" />
+        <input type="password" name="password" placeholder="Mot de passe" required />
+        <input type="password" name="conf_password" placeholder="Confirmer mot de passe" required />
+
+        <input type="submit" name="submit" value="S'inscrire" class="btn-submit" />
 
         <?php if ($erreur): ?>
             <p class="error"><?= $erreur ?></p>
@@ -64,6 +67,7 @@ if (isset($_POST['submit'])) {
         <a href="connexion.php" class="btn-retour-accueil">Déjà inscrit ? Connecte-toi</a>
     </form>
 </main>
+
 <?php include('footer.php'); ?>
 
 </body>

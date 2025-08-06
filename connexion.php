@@ -3,7 +3,6 @@ session_start();
 include_once 'bdd.php';
 include('header.php');
 
-
 $erreur = '';
 
 if (isset($_POST['submit'])) {
@@ -40,31 +39,35 @@ if (isset($_POST['submit'])) {
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Connexion</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <main>
-        <h2>Connexion</h2>
 
-        <?php if (!empty($erreur)): ?>
-            <p style="color: red;"><?= htmlspecialchars($erreur) ?></p>
-        <?php endif; ?>
+<main class="container small">
+    <h2>Connexion</h2>
 
-        <form method="POST" action="connexion.php">
-            <label for="login">Login :</label>
-            <input type="text" name="login" id="login" required><br>
+    <?php if (!empty($erreur)): ?>
+        <p class="error"><?= htmlspecialchars($erreur) ?></p>
+    <?php endif; ?>
 
-            <label for="password">Mot de passe :</label>
-            <input type="password" name="password" id="password" required><br>
+    <form method="POST" action="connexion.php" class="form-auth">
+        <label for="login">Login :</label>
+        <input type="text" name="login" id="login" required placeholder="Ton login">
 
-            <input type="submit" name="submit" value="Se connecter">
-            <p>Pas encore inscrit ? <a href="inscription.php">Inscrivez-vous ici</a></p>
-        </form>
+        <label for="password">Mot de passe :</label>
+        <input type="password" name="password" id="password" required placeholder="Ton mot de passe">
 
-    </main>
-    <?php include('footer.php'); ?>
+        <input type="submit" name="submit" value="Se connecter" class="btn primary">
+
+        <p class="small-text">
+            Pas encore inscrit ? <a href="inscription.php">Inscris-toi ici</a>
+        </p>
+    </form>
+</main>
+
+<?php include('footer.php'); ?>
 
 </body>
 </html>

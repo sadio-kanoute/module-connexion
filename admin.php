@@ -21,36 +21,35 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
 
-<main>
-    <div class="container large">
-        <h2>Page d'administration</h2>
-        <p>Bienvenue, admin <strong><?= htmlspecialchars($_SESSION['login']) ?></strong>. Voici la liste des utilisateurs enregistrés :</p>
+<main class="container large">
+    <h2>Page d'administration</h2>
+    <p>Bienvenue, admin <strong><?= htmlspecialchars($_SESSION['login']) ?></strong>. Voici la liste des utilisateurs enregistrés :</p>
 
-        <table>
-            <thead>
+    <table class="user-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Login</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($users as $u): ?>
                 <tr>
-                    <th>ID</th>
-                    <th>Login</th>
-                    <th>Prénom</th>
-                    <th>Nom</th>
+                    <td><?= htmlspecialchars($u['id']) ?></td>
+                    <td><?= htmlspecialchars($u['login']) ?></td>
+                    <td><?= htmlspecialchars($u['prenom']) ?></td>
+                    <td><?= htmlspecialchars($u['nom']) ?></td>
                 </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($users as $u): ?>
-                    <tr>
-                        <td><?= htmlspecialchars($u['id']) ?></td>
-                        <td><?= htmlspecialchars($u['login']) ?></td>
-                        <td><?= htmlspecialchars($u['prenom']) ?></td>
-                        <td><?= htmlspecialchars($u['nom']) ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
 
-        <a class="logout" href="deconnexion.php">Se déconnecter</a>
-    </div>
+    <a href="deconnexion.php" class="logout btn danger">Se déconnecter</a>
 </main>
 
 <?php include('footer.php'); ?>
+
 </body>
 </html>
